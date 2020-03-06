@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4842CC40-6111-4813-92CA-58EF17514778}</ProjectGuid>
+    <ProjectGuid>{9501E1FA-E9E5-475B-89E7-5293C344357F}</ProjectGuid>
     <Keyword>QtVS_v302</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
@@ -38,16 +38,19 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;network;widgets</QtModules>
+    <QtInstall>$(QTDIR)</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;network;widgets</QtModules>
+    <QtInstall>$(QTDIR)</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -80,29 +83,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Course.cpp" />
-    <ClCompile Include="CoursePlanner.cpp" />
-    <ClCompile Include="LocTime.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Person.cpp" />
+    <QtUic Include="app\CoursePlanner.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="CoursePlanner.h" />
+    <Image Include="resources\CoursePlanner.ico" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="CoursePlanner.ui" />
+    <QtRcc Include="resources\CoursePlanner.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="CoursePlanner.qrc" />
+    <ResourceCompile Include="resources\CoursePlanner.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CoursePlanner.rc" />
+    <ClCompile Include="app\CoursePlanner.cpp" />
+    <ClCompile Include="app\main.cpp" />
+    <ClCompile Include="src\Course.cpp" />
+    <ClCompile Include="src\LocTime.cpp" />
+    <ClCompile Include="src\Person.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Course.h" />
-    <ClInclude Include="LocTime.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="Term.h" />
+    <QtMoc Include="app\CoursePlanner.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\Course.h" />
+    <ClInclude Include="includes\LocTime.h" />
+    <ClInclude Include="includes\Person.h" />
+    <ClInclude Include="includes\Term.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

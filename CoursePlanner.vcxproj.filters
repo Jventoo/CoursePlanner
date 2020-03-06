@@ -23,72 +23,73 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Source Files\Objects">
-      <UniqueIdentifier>{bc6c0894-4121-4669-8716-a7dccf9021d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Objects">
-      <UniqueIdentifier>{4149666a-a507-4386-997c-9d27495ee715}</UniqueIdentifier>
+      <UniqueIdentifier>{876b3469-0083-45ad-87e3-1a68df7b6fa7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Database">
-      <UniqueIdentifier>{346f676f-9fe4-4f07-90b9-bbe1624b4f77}</UniqueIdentifier>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{3eb1f070-f1f0-432d-8340-7ee7874ab960}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Database">
-      <UniqueIdentifier>{a65b7e80-dc54-459d-a73a-e9b8644d7c6f}</UniqueIdentifier>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{1d069325-7e5e-4d98-88ad-92059a3fbfa5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Types">
-      <UniqueIdentifier>{f08a548e-5f96-4680-84bd-b287931ed917}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Types">
-      <UniqueIdentifier>{4ee65535-a371-47aa-a441-1747d91e0088}</UniqueIdentifier>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{f5726215-a78f-4ef0-9fbb-f6769b5102fa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CoursePlanner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Course.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="LocTime.cpp">
-      <Filter>Source Files\Types</Filter>
-    </ClCompile>
-    <ClCompile Include="Person.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="CoursePlanner.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="CoursePlanner.ui">
+    <QtUic Include="app\CoursePlanner.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="CoursePlanner.qrc">
+    <Image Include="resources\CoursePlanner.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="resources\CoursePlanner.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CoursePlanner.rc" />
+    <ResourceCompile Include="resources\CoursePlanner.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Course.h">
+    <ClCompile Include="app\CoursePlanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="app\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LocTime.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Course.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Person.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="app\CoursePlanner.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\LocTime.h">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\Course.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="LocTime.h">
-      <Filter>Header Files\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="Person.h">
+    <ClInclude Include="includes\Person.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Term.h">
-      <Filter>Header Files\Types</Filter>
+    <ClInclude Include="includes\Term.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

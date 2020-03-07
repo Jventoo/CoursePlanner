@@ -2,6 +2,7 @@
 
 Person::Person()
 {
+	title = "NULL";
 }
 
 Person::Person(const std::string& newFName,
@@ -33,7 +34,9 @@ std::stringstream Person::formatName()
 {
 	std::stringstream ss;
 
-	ss << title << ". " << fName << " " << lName;
+	if (title != "NULL")
+		ss << title << ". ";
+	ss << fName << " " << lName;
 
 	return ss;
 }

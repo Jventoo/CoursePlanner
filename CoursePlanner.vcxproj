@@ -98,14 +98,17 @@
     <ClCompile Include="app\CoursePlanner.cpp" />
     <ClCompile Include="app\main.cpp" />
     <ClCompile Include="src\Course.cpp" />
+    <ClCompile Include="src\ExceptionHandler.cpp" />
     <ClCompile Include="src\LocTime.cpp" />
     <ClCompile Include="src\Person.cpp" />
+    <ClCompile Include="src\Term.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="app\CoursePlanner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\Course.h" />
+    <ClInclude Include="includes\ExceptionHandler.h" />
     <ClInclude Include="includes\LocTime.h" />
     <ClInclude Include="includes\Person.h" />
     <ClInclude Include="includes\Term.h" />

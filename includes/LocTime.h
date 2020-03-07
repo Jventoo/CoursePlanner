@@ -4,15 +4,17 @@
 #include <string>
 #include <sstream>
 
-struct Time
-{
-	int minutes;
-	int hour;
-};
-
 class LocTime
 {
 public:
+
+	/** 24-hour format */
+	struct Time
+	{
+		int minutes;
+		int hour;
+	};
+
 	enum class Day {
 		Sunday, Monday, Tuesday,
 		Wednesday, Thursday, Friday, Saturday
@@ -20,11 +22,11 @@ public:
 
 	LocTime();
 	
-	void setLocation(const std::string& location);
-	void setDays(const std::vector<Day> days);
+	void setLocation(const std::string& newLoc);
+	void setDays(const std::vector<Day> newDays);
 
 	/** Only set in 24 hour format! */
-	void setTime(const Time& time);
+	void setTime(const Time& newTime);
 	void setLocDetails(const std::string& location,
 		const std::vector<Day> days, const Time& time);
 

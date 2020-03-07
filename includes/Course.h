@@ -12,16 +12,14 @@ class Course
 	Course();
 
 private:
-	std::string courseName;
-	std::string courseDesc;
-	std::string subject;
-
-	std::vector<int> preReqs;
+	std::string courseName, courseDesc, subject;
 
 	Person instructor;
 	Term date;
 	LocTime locDetails;
 
-	int credits;
-	int crseID;
+	int credits, crseID, secID;
+
+	/** Stores course IDs */
+	std::vector<int> preReqs;
 };

@@ -78,6 +78,9 @@
     <ClCompile Include="src\Term.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\CourseCatalog.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="app\CoursePlanner.h">
@@ -99,6 +102,9 @@
     </ClInclude>
     <ClInclude Include="includes\ExceptionHandler.h">
       <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\CourseCatalog.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

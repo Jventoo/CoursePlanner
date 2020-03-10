@@ -2,19 +2,26 @@
 
 Course::Course()
 {
+	// Init dyn mem
+
 	credits = 0;
 	crseID = 0;
-	secID = 0;
 }
 
 Course::Course(const std::string& newName, const std::string& newSubj,
-	int newCredits, int newCrseID, int newSecID)
+	int newCredits, int newCrseID)
 {
+	// init dyn mem
+
 	courseName = newName;
 	subject = newSubj;
 	credits = newCredits;
 	crseID = newCrseID;
-	secID = newSecID;
+}
+
+int Course::getCrseID() const
+{
+	return crseID;
 }
 
 void Course::setCrseName(const std::string& newName)
@@ -32,21 +39,6 @@ void Course::setCrseSubj(const std::string& newSubj)
 	subject = newSubj;
 }
 
-void Course::setCrseInst(const Person& newInst)
-{
-	instructor = newInst;
-}
-
-void Course::setCrseTerm(const Term& newTerm)
-{
-	date = newTerm;
-}
-
-void Course::setLocDetails(const LocTime& newDetails)
-{
-	locDetails = newDetails;
-}
-
 void Course::setCredits(int newCredits)
 {
 	credits = newCredits;
@@ -57,14 +49,34 @@ void Course::setCrseID(int newID)
 	crseID = newID;
 }
 
-void Course::setSecID(int newID)
+void Course::addPreReq(int newCrseID)
 {
-	secID = newID;
+	// Search the course catalog for the supplied course ID. Add to preReq array
+}
+
+void Course::removePreReq(int newCrseID)
+{
+	// Search preReq array. Remove found course
 }
 
 void Course::setPreReqs(const std::vector<int> newPreReqs)
 {
-	preReqs = newPreReqs;
+	*preReqs = newPreReqs;
+}
+
+void Course::addSection(const Section& newSec)
+{
+	sections->push_back(newSec);
+}
+
+void Course::removeSection(const Section& oldSec)
+{
+	// Search sections array, remove param sec
+}
+
+void Course::removeSection(int oldSecID)
+{
+	// Search sections array, remove param sec
 }
 
 bool Course::operator==(const Course& otherCrse)

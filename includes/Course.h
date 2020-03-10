@@ -6,23 +6,32 @@
 #include "LocTime.h"
 #include "Person.h"
 #include "Term.h"
+#include "Section.h"
 
 class Course
 {
+public:
 	Course();
 	Course(const std::string& newName, const std::string& newSubj,
-		int newCredits, int newCrseID, int newSecID);
+		int newCredits, int newCrseID);
+
+	~Course();
+
+	int getCrseID() const;
 
 	void setCrseName(const std::string& newName);
 	void setCrseDesc(const std::string& newDesc);
 	void setCrseSubj(const std::string& newSubj);
-	void setCrseInst(const Person& newInst);
-	void setCrseTerm(const Term& newTerm);
-	void setLocDetails(const LocTime& newDetails);
 	void setCredits(int newCredits);
 	void setCrseID(int newID);
-	void setSecID(int newID);
+
+	void addPreReq(int crseID);
+	void removePreReq(int crseID);
 	void setPreReqs(const std::vector<int> newPreReqs);
+
+	void addSection(const Section& newSec);
+	void removeSection(const Section& sec);
+	void removeSection(int secID);
 
 	bool operator==(const Course& otherCrse);
 	bool operator<(const Course& otherCrse);
@@ -31,12 +40,9 @@ class Course
 private:
 	std::string courseName, courseDesc, subject;
 
-	Person instructor;
-	Term date;
-	LocTime locDetails;
-
-	int credits, crseID, secID;
+	int credits, crseID;
 
 	/** Stores course IDs */
-	std::vector<int> preReqs;
+	std::vector<int>* preReqs;
+	std::vector<Section>* sections;
 };

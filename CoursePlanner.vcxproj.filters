@@ -81,6 +81,9 @@
     <ClCompile Include="src\CourseCatalog.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="src\Section.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="app\CoursePlanner.h">
@@ -104,6 +107,9 @@
       <Filter>Header Files\Helpers</Filter>
     </ClInclude>
     <ClInclude Include="includes\CourseCatalog.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\Section.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>

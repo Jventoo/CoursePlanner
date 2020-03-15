@@ -21,17 +21,23 @@ Course* CourseCatalog::findCourse(int crseID)
 {
 	// Find course using binary search
 	// Update return value to iterator?
+
+	return nullptr;
 }
 
 Course* CourseCatalog::findCourse(const std::string& crseName)
 {
 	// Find course using binary search
 	// Update return value to iterator?
+
+	return nullptr;
 }
 
 Section* CourseCatalog::findSection(const std::string& crseName, int secID)
 {
 	// Binary search sections vector
+
+	return nullptr;
 }
 
 void CourseCatalog::addPreReqs(const Course& newCourse)

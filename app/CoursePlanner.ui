@@ -6,21 +6,66 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1917</width>
+    <height>1057</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CoursePlanner</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>521</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(240, 240, 240);
+selection-color: rgb(240, 240, 240);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>59</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Title</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>1851</width>
+      <height>871</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1920</width>
-     <height>21</height>
+     <width>1917</width>
+     <height>27</height>
     </rect>
    </property>
    <property name="acceptDrops">
@@ -29,6 +74,11 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
    <property name="movable">
     <bool>false</bool>
    </property>
@@ -42,10 +92,22 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_myPlans"/>
+   <addaction name="action_newPlan"/>
+   <addaction name="action_Edit"/>
   </widget>
   <action name="action_myPlans">
    <property name="text">
-    <string>MY PLANS</string>
+    <string>My Plans</string>
+   </property>
+  </action>
+  <action name="action_Edit">
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="action_newPlan">
+   <property name="text">
+    <string>New Plan</string>
    </property>
   </action>
  </widget>

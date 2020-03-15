@@ -6,7 +6,8 @@
 #include "LocTime.h"
 #include "Person.h"
 #include "Term.h"
-#include "Section.h"
+
+class Section;
 
 class Course
 {
@@ -29,7 +30,8 @@ public:
 	void removePreReq(int crseID);
 	void setPreReqs(const std::vector<int> newPreReqs);
 
-	void addSection(const Section& newSec);
+	// Returns section ID of new section
+	int addSection(const Section& newSec);
 	void removeSection(const Section& sec);
 	void removeSection(int secID);
 
@@ -44,5 +46,5 @@ private:
 
 	/** Stores course IDs */
 	std::vector<int>* preReqs;
-	std::vector<Section>* sections;
+	std::vector<Course>* sections;
 };

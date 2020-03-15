@@ -1,4 +1,5 @@
 #include "includes/Course.h"
+#include "includes/Section.h"
 
 Course::Course()
 {
@@ -6,6 +7,15 @@ Course::Course()
 
 	credits = 0;
 	crseID = 0;
+}
+
+Course::~Course()
+{
+	/*delete preReqs;
+	delete sections;
+
+	preReqs = nullptr;
+	sections = nullptr;*/
 }
 
 Course::Course(const std::string& newName, const std::string& newSubj,
@@ -64,9 +74,11 @@ void Course::setPreReqs(const std::vector<int> newPreReqs)
 	*preReqs = newPreReqs;
 }
 
-void Course::addSection(const Section& newSec)
+int Course::addSection(const Section& newSec)
 {
 	sections->push_back(newSec);
+
+	return 0;
 }
 
 void Course::removeSection(const Section& oldSec)

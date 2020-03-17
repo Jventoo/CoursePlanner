@@ -14,13 +14,13 @@
    <string>CoursePlanner</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="planTitleText">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>30</y>
       <width>521</width>
-      <height>31</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="acceptDrops">
@@ -33,8 +33,26 @@
      <string notr="true">background-color: rgb(240, 240, 240);
 selection-color: rgb(240, 240, 240);</string>
     </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+    </property>
+    <property name="lineWrapMode">
+     <enum>QPlainTextEdit::NoWrap</enum>
+    </property>
+    <property name="maximumBlockCount">
+     <number>5</number>
+    </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="titleText">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -53,10 +71,53 @@ selection-color: rgb(240, 240, 240);</string>
       <x>30</x>
       <y>90</y>
       <width>1851</width>
-      <height>871</height>
+      <height>891</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout"/>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="fall_GB"/>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="winter_GB"/>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="spring_GB"/>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="summer_GB"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1761</width>
+          <height>887</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -65,7 +126,7 @@ selection-color: rgb(240, 240, 240);</string>
      <x>0</x>
      <y>0</y>
      <width>1917</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="acceptDrops">

@@ -123,6 +123,9 @@
     <ClInclude Include="includes\Term.h" />
     <QtMoc Include="widgets\PlannedClassWidget.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\Courses.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

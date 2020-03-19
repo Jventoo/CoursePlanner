@@ -128,4 +128,9 @@
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\Courses.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

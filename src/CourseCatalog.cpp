@@ -17,7 +17,7 @@ void CourseCatalog::removeCourse(const Course& newCourse)
 	// Find course, remove from vector. Update sorted order
 }
 
-Course* CourseCatalog::findCourse(int crseID)
+Course* CourseCatalog::findCourse(int crseID) const
 {
 	// Find course using binary search
 	// Update return value to iterator?
@@ -25,7 +25,7 @@ Course* CourseCatalog::findCourse(int crseID)
 	return nullptr;
 }
 
-Course* CourseCatalog::findCourse(const std::string& crseName)
+Course* CourseCatalog::findCourse(const std::string& crseName) const
 {
 	// Find course using binary search
 	// Update return value to iterator?
@@ -33,11 +33,16 @@ Course* CourseCatalog::findCourse(const std::string& crseName)
 	return nullptr;
 }
 
-Section* CourseCatalog::findSection(const std::string& crseName, int secID)
+Section* CourseCatalog::findSection(const std::string& crseName, int secID) const
 {
 	// Binary search sections vector
 
 	return nullptr;
+}
+
+std::vector<Course>& CourseCatalog::getCatalog()
+{
+	return catalog;
 }
 
 void CourseCatalog::addPreReqs(const Course& newCourse)

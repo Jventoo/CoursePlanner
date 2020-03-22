@@ -96,6 +96,9 @@
     <ClCompile Include="app\CoursePlanner.cpp">
       <Filter>Source Files\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="src\MasterPlanner.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="widgets\PlannedClassWidget.h">
@@ -125,6 +128,9 @@
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="includes\Section.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\MasterPlanner.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>

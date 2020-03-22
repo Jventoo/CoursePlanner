@@ -45,6 +45,16 @@ std::vector<Course>& CourseCatalog::getCatalog()
 	return catalog;
 }
 
+std::string CourseCatalog::getSchoolName() const
+{
+	return schoolName;
+}
+
+void CourseCatalog::setSchoolName(const std::string& newName)
+{
+	schoolName = newName;
+}
+
 void CourseCatalog::addPreReqs(const Course& newCourse)
 {
 	// Add to dynamic vector
@@ -63,4 +73,12 @@ void CourseCatalog::removePreReqs(const Course& newCourse)
 void CourseCatalog::removePreReqs(const std::vector<int>& preReqs)
 {
 	// Remove
+}
+
+bool CourseCatalog::operator==(const CourseCatalog& rhs) const
+{
+	if (schoolName == rhs.schoolName)
+		return true;
+
+	return false;
 }

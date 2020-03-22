@@ -105,6 +105,7 @@
     <ClCompile Include="src\CourseCatalog.cpp" />
     <ClCompile Include="src\ExceptionHandler.cpp" />
     <ClCompile Include="src\LocTime.cpp" />
+    <ClCompile Include="src\MasterPlanner.cpp" />
     <ClCompile Include="src\Person.cpp" />
     <ClCompile Include="src\Section.cpp" />
     <ClCompile Include="src\Term.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="includes\CourseCatalog.h" />
     <ClInclude Include="includes\ExceptionHandler.h" />
     <ClInclude Include="includes\LocTime.h" />
+    <ClInclude Include="includes\MasterPlanner.h" />
     <ClInclude Include="includes\Person.h" />
     <ClInclude Include="includes\Section.h" />
     <ClInclude Include="includes\Term.h" />

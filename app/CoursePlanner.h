@@ -5,7 +5,7 @@
 #include "includes/MasterPlanner.h"
 
 #include <vector>
-#include <string>
+#include <QString>
 
 class CoursePlanner : public QMainWindow
 {

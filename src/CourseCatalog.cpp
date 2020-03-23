@@ -25,7 +25,7 @@ Course* CourseCatalog::findCourse(int crseID) const
 	return nullptr;
 }
 
-Course* CourseCatalog::findCourse(const std::string& crseName) const
+Course* CourseCatalog::findCourse(const QString& crseName) const
 {
 	// Find course using binary search
 	// Update return value to iterator?
@@ -33,7 +33,7 @@ Course* CourseCatalog::findCourse(const std::string& crseName) const
 	return nullptr;
 }
 
-Section* CourseCatalog::findSection(const std::string& crseName, int secID) const
+Section* CourseCatalog::findSection(const QString& crseName, int secID) const
 {
 	// Binary search sections vector
 
@@ -45,12 +45,12 @@ std::vector<Course>& CourseCatalog::getCatalog()
 	return catalog;
 }
 
-std::string CourseCatalog::getSchoolName() const
+QString CourseCatalog::getSchoolName() const
 {
 	return schoolName;
 }
 
-void CourseCatalog::setSchoolName(const std::string& newName)
+void CourseCatalog::setSchoolName(const QString& newName)
 {
 	schoolName = newName;
 }

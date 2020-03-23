@@ -3,7 +3,7 @@
 #include "includes/Course.h"
 #include "includes/Section.h"
 #include <vector>
-#include <string>
+#include <QString>
 
 class CourseCatalog
 {
@@ -14,13 +14,13 @@ public:
 	void removeCourse(const Course& newCourse);
 	
 	Course* findCourse(int crseID) const;
-	Course* findCourse(const std::string& crseName) const;
-	Section* findSection(const std::string& crseName, int secID) const;
+	Course* findCourse(const QString& crseName) const;
+	Section* findSection(const QString& crseName, int secID) const;
 
 	std::vector<Course>& getCatalog();
-	std::string getSchoolName() const;
+	QString getSchoolName() const;
 
-	void setSchoolName(const std::string& newName);
+	void setSchoolName(const QString& newName);
 
 	void addPreReqs(const Course& newCourse);
 	void addPreReqs(const std::vector<int>& preReqs);
@@ -31,5 +31,5 @@ public:
 
 private:
 	std::vector<Course> catalog;
-	std::string schoolName;
+	QString schoolName;
 };

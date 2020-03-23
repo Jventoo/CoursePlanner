@@ -6,7 +6,7 @@ Term::Term()
 	isSemester = false;
 }
 
-void Term::setTermName(const std::string& newName)
+void Term::setTermName(const QString& newName)
 {
 	termName = newName;
 }

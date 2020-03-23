@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <string>
+#include <QString>
 #include <sstream>
 
 class LocTime
@@ -22,12 +22,12 @@ public:
 
 	LocTime();
 	
-	void setLocation(const std::string& newLoc);
+	void setLocation(const QString& newLoc);
 	void setDays(const std::vector<Day> newDays);
 
 	/** Only set in 24 hour format! */
 	void setTime(const Time& newTime);
-	void setLocDetails(const std::string& location,
+	void setLocDetails(const QString& location,
 		const std::vector<Day> days, const Time& time);
 
 	void translateTo24(Time& time);
@@ -36,7 +36,7 @@ public:
 	std::stringstream formatTime(const Time& time);
 
 private:
-	std::string location;
+	QString location;
 	std::vector<Day> days;
 	
 	Time time;

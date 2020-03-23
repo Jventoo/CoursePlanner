@@ -18,7 +18,7 @@ Course::~Course()
 	sections = nullptr;*/
 }
 
-Course::Course(const std::string& newName, const std::string& newSubj,
+Course::Course(const QString& newName, const QString& newSubj,
 	int newCredits, int newCrseID)
 {
 	// init dyn mem
@@ -34,17 +34,17 @@ int Course::getCrseID() const
 	return crseID;
 }
 
-void Course::setCrseName(const std::string& newName)
+void Course::setCrseName(const QString& newName)
 {
 	courseName = newName;
 }
 
-void Course::setCrseDesc(const std::string& newDesc)
+void Course::setCrseDesc(const QString& newDesc)
 {
 	courseDesc = newDesc;
 }
 
-void Course::setCrseSubj(const std::string& newSubj)
+void Course::setCrseSubj(const QString& newSubj)
 {
 	subject = newSubj;
 }

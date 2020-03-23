@@ -81,12 +81,12 @@ void MasterPlanner::setCurrCatalog(CourseCatalog* newPtr)
 	// (slower, more expensive although may be practical on small scale)
 }
 
-std::string MasterPlanner::getPlanName() const
+QString MasterPlanner::getPlanName() const
 {
 	return planName;
 }
 
-void MasterPlanner::setPlanName(const std::string& newName)
+void MasterPlanner::setPlanName(const QString& newName)
 {
 	planName = newName;
 }

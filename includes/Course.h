@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <QString>
 #include <vector>
 
 #include "LocTime.h"
@@ -13,16 +13,16 @@ class Course
 {
 public:
 	Course();
-	Course(const std::string& newName, const std::string& newSubj,
+	Course(const QString& newName, const QString& newSubj,
 		int newCredits, int newCrseID);
 
 	~Course();
 
 	int getCrseID() const;
 
-	void setCrseName(const std::string& newName);
-	void setCrseDesc(const std::string& newDesc);
-	void setCrseSubj(const std::string& newSubj);
+	void setCrseName(const QString& newName);
+	void setCrseDesc(const QString& newDesc);
+	void setCrseSubj(const QString& newSubj);
 	void setCredits(int newCredits);
 	void setCrseID(int newID);
 
@@ -40,7 +40,7 @@ public:
 	bool operator>(const Course& otherCrse);
 
 private:
-	std::string courseName, courseDesc, subject;
+	QString courseName, courseDesc, subject;
 
 	int credits, crseID;
 

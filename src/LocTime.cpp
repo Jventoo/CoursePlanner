@@ -9,7 +9,7 @@ LocTime::LocTime()
 	pm = false;
 }
 
-void LocTime::setLocation(const std::string& newLoc)
+void LocTime::setLocation(const QString& newLoc)
 {
 	location = newLoc;
 }
@@ -37,7 +37,7 @@ void LocTime::setTime(const Time& newTime)
 	pm = false;
 }
 
-void LocTime::setLocDetails(const std::string& newLoc,
+void LocTime::setLocDetails(const QString& newLoc,
 	const std::vector<Day> newDays, const Time& newTime)
 {
 	setLocation(newLoc);

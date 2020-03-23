@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <QString>
 #include <sstream>
 #include <iostream>
 #include "LocTime.h"
@@ -20,7 +20,7 @@ class Term
 public:
 	Term();
 
-	void setTermName(const std::string& newName);
+	void setTermName(const QString& newName);
 	void setTermType(bool isSem);
 	void setStart(const Date& newStart);
 	void setEnd(const Date& newEnd);
@@ -30,7 +30,7 @@ public:
 
 
 private:
-	std::string termName;
+	QString termName;
 	
 	Date startDate;
 	Date endDate;

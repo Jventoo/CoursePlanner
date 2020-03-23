@@ -1,6 +1,5 @@
 #include "CoursePlanner.h"
 #include "PlannedClassWidget.h"
-//#include "includes/Course.h"
 
 CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	: backendPlan(BP), QMainWindow(parent)
@@ -17,5 +16,5 @@ CoursePlanner::~CoursePlanner()
 
 void CoursePlanner::updatePlanName()
 {
-	backendPlan.setPlanName((ui.titleLineEdit->text).toStdString());
+	backendPlan.setPlanName(ui.titleLineEdit->text());
 }

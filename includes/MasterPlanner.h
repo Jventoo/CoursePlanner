@@ -3,7 +3,7 @@
 #include "includes/CourseCatalog.h"
 
 #include <vector>
-#include <string>
+#include <QString>
 
 class MasterPlanner
 {
@@ -15,12 +15,12 @@ public:
 	void removeCatalog(CourseCatalog* oldCat);
 	void setCurrCatalog(CourseCatalog* newPtr);
 
-	std::string getPlanName() const;
-	void setPlanName(const std::string& newName);
+	QString getPlanName() const;
+	void setPlanName(const QString& newName);
 
 private:
 	std::vector<CourseCatalog*> courseCats;
 	CourseCatalog* currentCat;
 
-	std::string planName;
+	QString planName;
 };

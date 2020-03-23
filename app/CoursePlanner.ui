@@ -72,6 +72,9 @@
          <property name="maxLength">
           <number>100</number>
          </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
        <item>

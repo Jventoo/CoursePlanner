@@ -80,3 +80,13 @@ void MasterPlanner::setCurrCatalog(CourseCatalog* newPtr)
 	// inner loop -> create dyn widget, add to scrollbox
 	// (slower, more expensive although may be practical on small scale)
 }
+
+std::string MasterPlanner::getPlanName() const
+{
+	return planName;
+}
+
+void MasterPlanner::setPlanName(const std::string& newName)
+{
+	planName = newName;
+}

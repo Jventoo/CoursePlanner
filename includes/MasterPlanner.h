@@ -18,6 +18,8 @@ public:
 	QString getPlanName() const;
 	void setPlanName(const QString& newName);
 
+	std::vector<CourseCatalog*>& getCourseCats();
+
 private:
 	std::vector<CourseCatalog*> courseCats;
 	CourseCatalog* currentCat;

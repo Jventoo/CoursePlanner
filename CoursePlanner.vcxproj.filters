@@ -49,6 +49,12 @@
     <QtUic Include="widgets\PlannedClassWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="widgets\CourseDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="widgets\SchoolsDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\CoursePlanner.ico">
@@ -99,12 +105,24 @@
     <ClCompile Include="src\MasterPlanner.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\CourseDialog.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SchoolsDialog.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="widgets\PlannedClassWidget.h">
       <Filter>Header Files\Widgets</Filter>
     </QtMoc>
     <QtMoc Include="app\CoursePlanner.h">
+      <Filter>Header Files\Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\CourseDialog.h">
+      <Filter>Header Files\Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SchoolsDialog.h">
       <Filter>Header Files\Widgets</Filter>
     </QtMoc>
   </ItemGroup>

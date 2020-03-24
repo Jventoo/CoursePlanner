@@ -15,6 +15,9 @@ public:
 	CoursePlanner(MasterPlanner& BP, QWidget *parent = Q_NULLPTR);
 	~CoursePlanner();
 
+	void toggleComboTexts();
+	void toggleCoursesButton();
+
 public slots:
 	void updatePlanName();
 

@@ -90,3 +90,8 @@ void MasterPlanner::setPlanName(const QString& newName)
 {
 	planName = newName;
 }
+
+std::vector<CourseCatalog*>& MasterPlanner::getCourseCats()
+{
+	return courseCats;
+}

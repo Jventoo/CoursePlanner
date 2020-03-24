@@ -87,7 +87,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtUic Include="app\CoursePlanner.ui" />
+    <QtUic Include="widgets\CourseDialog.ui" />
     <QtUic Include="widgets\PlannedClassWidget.ui" />
+    <QtUic Include="widgets\SchoolsDialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\CoursePlanner.ico" />
@@ -109,7 +111,9 @@
     <ClCompile Include="src\Person.cpp" />
     <ClCompile Include="src\Section.cpp" />
     <ClCompile Include="src\Term.cpp" />
+    <ClCompile Include="widgets\CourseDialog.cpp" />
     <ClCompile Include="widgets\PlannedClassWidget.cpp" />
+    <ClCompile Include="widgets\SchoolsDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="app\CoursePlanner.h" />
@@ -123,6 +127,8 @@
     <ClInclude Include="includes\Person.h" />
     <ClInclude Include="includes\Section.h" />
     <ClInclude Include="includes\Term.h" />
+    <QtMoc Include="widgets\SchoolsDialog.h" />
+    <QtMoc Include="widgets\CourseDialog.h" />
     <QtMoc Include="widgets\PlannedClassWidget.h" />
   </ItemGroup>
   <ItemGroup>

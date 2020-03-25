@@ -27,7 +27,7 @@ void Section::setSecID(int newID)
 
 bool Section::operator==(const Section& otherSec)
 {
-	if (getCrseID() == otherSec.getCrseID() &&
+	if (getCourseID() == otherSec.getCourseID() &&
 		sectionID == otherSec.sectionID)
 		return true;
 

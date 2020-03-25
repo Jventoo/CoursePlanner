@@ -2,6 +2,7 @@
 
 #include "includes/Course.h"
 #include "includes/Section.h"
+
 #include <vector>
 #include <QString>
 
@@ -9,6 +10,7 @@ class CourseCatalog
 {
 public:
 	CourseCatalog();
+	CourseCatalog(const QString& newName);
 
 	void addCourse(const Course& newCourse);
 	void removeCourse(const Course& newCourse);

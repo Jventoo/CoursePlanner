@@ -18,6 +18,9 @@ public:
 	void toggleComboTexts();
 	void toggleCoursesButton();
 
+	void populateCourseList(CourseCatalog* cat);
+	void populateComboBoxes();
+
 public slots:
 	void updatePlanName();
 

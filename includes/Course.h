@@ -2,6 +2,7 @@
 
 #include <QString>
 #include <vector>
+#include <QMetaType>
 
 #include "LocTime.h"
 #include "Person.h"
@@ -15,10 +16,15 @@ public:
 	Course();
 	Course(const QString& newName, const QString& newSubj,
 		int newCredits, int newCrseID);
+	Course(const Course& other);
 
 	~Course();
 
-	int getCrseID() const;
+	QString getCourseName() const;
+	QString getCourseSubject() const;
+	QString getCourseDesc() const;
+	int getCourseCredits() const;
+	int getCourseID() const;
 
 	void setCrseName(const QString& newName);
 	void setCrseDesc(const QString& newDesc);
@@ -42,9 +48,11 @@ public:
 private:
 	QString courseName, courseDesc, subject;
 
-	int credits, crseID;
+	qint32 credits, courseID;
 
 	/** Stores course IDs */
-	std::vector<int>* preReqs;
-	std::vector<Course>* sections;
+	std::vector<int> preReqs;
+	std::vector<Section*> sections;
 };
+
+Q_DECLARE_METATYPE(Course);

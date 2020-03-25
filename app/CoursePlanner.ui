@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1919</width>
-    <height>1056</height>
+    <height>1021</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -222,7 +222,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListView" name="fallListView"/>
+          <widget class="CourseList" name="fallListView"/>
          </item>
         </layout>
        </item>
@@ -266,7 +266,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListView" name="winterListView"/>
+          <widget class="CourseList" name="winterListView"/>
          </item>
         </layout>
        </item>
@@ -310,7 +310,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListView" name="springListView"/>
+          <widget class="CourseList" name="springListView"/>
          </item>
         </layout>
        </item>
@@ -354,7 +354,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListView" name="summerListView"/>
+          <widget class="CourseList" name="summerListView"/>
          </item>
         </layout>
        </item>
@@ -375,7 +375,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QListView" name="coursesList"/>
+        <widget class="CourseList" name="coursesList"/>
        </item>
       </layout>
      </item>
@@ -448,6 +448,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CourseList</class>
+   <extends>QListView</extends>
+   <header>CourseList.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/CoursePlanner.qrc"/>
  </resources>

@@ -5,6 +5,11 @@ CourseCatalog::CourseCatalog()
 
 }
 
+CourseCatalog::CourseCatalog(const QString& newName)
+{
+	schoolName = newName;
+}
+
 void CourseCatalog::addCourse(const Course& newCourse)
 {
 	// Change insertion to keep sorted order

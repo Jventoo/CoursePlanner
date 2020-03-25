@@ -1,5 +1,7 @@
 #include "CoursePlanner.h"
 #include "PlannedClassWidget.h"
+#include "CourseList.h"
+#include "includes/Course.h"
 
 CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	: backendPlan(BP), QMainWindow(parent)
@@ -15,6 +17,14 @@ CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	{
 		toggleComboTexts();
 		toggleCoursesButton();
+	}
+	else
+	{
+		auto currCat = backendPlan.getCourseCats().at(0);
+
+		backendPlan.setCurrCatalog(currCat);
+		populateCourseList(currCat);
+		populateComboBoxes();
 	}
 }
 
@@ -54,4 +64,29 @@ void CoursePlanner::toggleCoursesButton()
 void CoursePlanner::updatePlanName()
 {
 	backendPlan.setPlanName(ui.titleLineEdit->text());
+}
+
+void CoursePlanner::populateCourseList(CourseCatalog* cat)
+{
+	for (const auto& e : cat->getCatalog())
+	{
+		ui.coursesList->addCourse(e);
+	}
+}
+
+void CoursePlanner::populateComboBoxes()
+{
+	auto currCat = backendPlan.getCurrentCat();
+
+	if (currCat)
+	{
+		for (const auto& e : backendPlan.getCourseCats())
+			ui.schoolsCombo->addItem(e->getSchoolName());
+
+		ui.schoolsCombo->setCurrentText(currCat->getSchoolName());
+
+
+		// Give functionality to years combo
+		ui.yearCombo->setEnabled(false);
+	}
 }

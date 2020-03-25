@@ -63,7 +63,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>.\src\Widgets;.\widgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\src\Widgets;.\widgets;.\widgets\Delegates;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -77,7 +77,7 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>.\src\Widgets;.\widgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\src\Widgets;.\widgets;.\widgets\Delegates;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -112,6 +112,8 @@
     <ClCompile Include="src\Section.cpp" />
     <ClCompile Include="src\Term.cpp" />
     <ClCompile Include="widgets\CourseDialog.cpp" />
+    <ClCompile Include="widgets\CourseList.cpp" />
+    <ClCompile Include="widgets\Delegates\CourseDelegate.cpp" />
     <ClCompile Include="widgets\PlannedClassWidget.cpp" />
     <ClCompile Include="widgets\SchoolsDialog.cpp" />
   </ItemGroup>
@@ -127,6 +129,9 @@
     <ClInclude Include="includes\Person.h" />
     <ClInclude Include="includes\Section.h" />
     <ClInclude Include="includes\Term.h" />
+    <ClInclude Include="widgets\Delegates\CourseDelegate_p.h" />
+    <QtMoc Include="widgets\Delegates\CourseDelegate.h" />
+    <QtMoc Include="widgets\CourseList.h" />
     <QtMoc Include="widgets\SchoolsDialog.h" />
     <QtMoc Include="widgets\CourseDialog.h" />
     <QtMoc Include="widgets\PlannedClassWidget.h" />

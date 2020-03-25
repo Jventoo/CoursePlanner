@@ -53,6 +53,8 @@ void MasterPlanner::removeCatalog(CourseCatalog* oldCat)
 
 	if (!currentCat && courseCats.size() > 0)
 		currentCat = courseCats[0];
+
+	// Update schoolsCombo or find way to tie schoolsCombo to courseCats vector
 }
 
 void MasterPlanner::setCurrCatalog(CourseCatalog* newPtr)
@@ -94,4 +96,9 @@ void MasterPlanner::setPlanName(const QString& newName)
 std::vector<CourseCatalog*>& MasterPlanner::getCourseCats()
 {
 	return courseCats;
+}
+
+CourseCatalog* MasterPlanner::getCurrentCat() const
+{
+	return currentCat;
 }

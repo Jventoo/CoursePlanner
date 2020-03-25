@@ -3,19 +3,17 @@
 
 Course::Course()
 {
-	// Init dyn mem
-
 	credits = 0;
-	crseID = 0;
+	courseID = 0;
 }
 
 Course::~Course()
 {
-	/*delete preReqs;
-	delete sections;
-
-	preReqs = nullptr;
-	sections = nullptr;*/
+	for (auto& e : sections)
+	{
+		delete e;
+		e = nullptr;
+	}
 }
 
 Course::Course(const QString& newName, const QString& newSubj,
@@ -26,12 +24,51 @@ Course::Course(const QString& newName, const QString& newSubj,
 	courseName = newName;
 	subject = newSubj;
 	credits = newCredits;
-	crseID = newCrseID;
+	courseID = newCrseID;
 }
 
-int Course::getCrseID() const
+Course::Course(const Course& other)
 {
-	return crseID;
+	courseName = other.courseName;
+	courseDesc = other.courseDesc;
+	subject = other.subject;
+
+	credits = other.credits;
+	courseID = other.courseID;
+
+	preReqs = other.preReqs;
+
+	for (auto e : other.sections)
+	{
+		auto temp = new Section(*e);
+		sections.push_back(temp);
+	}
+
+}
+
+QString Course::getCourseName() const
+{
+	return courseName;
+}
+
+QString Course::getCourseSubject() const
+{
+	return subject;
+}
+
+QString Course::getCourseDesc() const
+{
+	return courseDesc;
+}
+
+int Course::getCourseCredits() const
+{
+	return credits;
+}
+
+int Course::getCourseID() const
+{
+	return courseID;
 }
 
 void Course::setCrseName(const QString& newName)
@@ -56,7 +93,7 @@ void Course::setCredits(int newCredits)
 
 void Course::setCrseID(int newID)
 {
-	crseID = newID;
+	courseID = newID;
 }
 
 void Course::addPreReq(int newCrseID)
@@ -71,12 +108,12 @@ void Course::removePreReq(int newCrseID)
 
 void Course::setPreReqs(const std::vector<int> newPreReqs)
 {
-	*preReqs = newPreReqs;
+	preReqs = newPreReqs;
 }
 
 int Course::addSection(const Section& newSec)
 {
-	sections->push_back(newSec);
+	//sections->push_back(newSec);
 
 	return 0;
 }
@@ -93,7 +130,7 @@ void Course::removeSection(int oldSecID)
 
 bool Course::operator==(const Course& otherCrse)
 {
-	if (crseID == otherCrse.crseID)
+	if (courseID == otherCrse.courseID)
 		return true;
 	else if (courseName == otherCrse.courseName)
 		return true;
@@ -103,7 +140,7 @@ bool Course::operator==(const Course& otherCrse)
 
 bool Course::operator<(const Course& otherCrse)
 {
-	if (crseID < otherCrse.crseID)
+	if (courseID < otherCrse.courseID)
 		return true;
 	else if (courseName < otherCrse.courseName)
 		return true;
@@ -113,7 +150,7 @@ bool Course::operator<(const Course& otherCrse)
 
 bool Course::operator>(const Course& otherCrse)
 {
-	if (crseID > otherCrse.crseID)
+	if (courseID > otherCrse.courseID)
 		return true;
 	else if (courseName > otherCrse.courseName)
 		return true;

@@ -41,6 +41,12 @@
     <Filter Include="Header Files\Widgets">
       <UniqueIdentifier>{0fab3efc-6547-44a6-b020-d8a9d5fea021}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Widgets\Delegates">
+      <UniqueIdentifier>{ce76fa36-f524-4f2d-b0f8-514d429fd7b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets\Delegates">
+      <UniqueIdentifier>{2fbd1347-6a38-4670-9093-a4d29c1f56c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="app\CoursePlanner.ui">
@@ -111,6 +117,12 @@
     <ClCompile Include="widgets\SchoolsDialog.cpp">
       <Filter>Source Files\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\CourseList.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\Delegates\CourseDelegate.cpp">
+      <Filter>Source Files\Widgets\Delegates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="widgets\PlannedClassWidget.h">
@@ -124,6 +136,12 @@
     </QtMoc>
     <QtMoc Include="widgets\SchoolsDialog.h">
       <Filter>Header Files\Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\CourseList.h">
+      <Filter>Header Files\Widgets</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\Delegates\CourseDelegate.h">
+      <Filter>Header Files\Widgets\Delegates</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +168,9 @@
     </ClInclude>
     <ClInclude Include="includes\MasterPlanner.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\Delegates\CourseDelegate_p.h">
+      <Filter>Source Files\Widgets\Delegates</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

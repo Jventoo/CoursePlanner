@@ -2,6 +2,7 @@
 #include "PlannedClassWidget.h"
 #include "CourseList.h"
 #include "includes/Course.h"
+#include "SchoolsDialog.h"
 
 CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	: backendPlan(BP), QMainWindow(parent)
@@ -11,6 +12,10 @@ CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	// Connect Title Line Edit's "editted" signal to slot updating our plan's name
 	connect(ui.titleLineEdit, &QLineEdit::editingFinished, 
 		this, &CoursePlanner::updatePlanName);
+
+	// Connect "Edit Schools" action to create schoolsDialog
+	connect(ui.action_EditSchools, &QAction::triggered,
+		this, &CoursePlanner::createSchoolsDialog);
 
 	// If we don't have any course catalogs (i.e. schools), disable combos/buttons
 	if (backendPlan.getCourseCats().size() == 0)
@@ -79,14 +84,41 @@ void CoursePlanner::populateComboBoxes()
 	auto currCat = backendPlan.getCurrentCat();
 
 	if (currCat)
-	{
+	{	
+		QStringList list;
 		for (const auto& e : backendPlan.getCourseCats())
-			ui.schoolsCombo->addItem(e->getSchoolName());
+			list << e->getSchoolName();
 
+		schoolsModel = new QStringListModel(list);
+
+		ui.schoolsCombo->setModel(schoolsModel);
 		ui.schoolsCombo->setCurrentText(currCat->getSchoolName());
 
 
 		// Give functionality to years combo
 		ui.yearCombo->setEnabled(false);
+	}
+	else
+		schoolsModel = nullptr;
+}
+
+void CoursePlanner::on_schoolsCombo_currentIndexChanged(int index)
+{
+	backendPlan.setCurrCatalog(backendPlan.getCourseCats().at(index));
+
+	// WIP APPROACH! CHANGE TO CREATE NEW MODEL AND SWITCHING: PRESERVING MODEL SO LONG AS IT IS STILL ALIVE IN BACKEND!
+	ui.coursesList->clearAll();
+	populateCourseList(backendPlan.getCurrentCat());
+}
+
+void CoursePlanner::createSchoolsDialog()
+{
+	SchoolsDialog dialog(this);
+	dialog.schoolsList->setModel(schoolsModel);
+	dialog.updateRemoveButton();
+
+	if (dialog.exec())
+	{
+		//updateComboBoxes();
 	}
 }

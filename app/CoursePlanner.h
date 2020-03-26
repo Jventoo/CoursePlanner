@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <QString>
+#include <QStringListModel>
 
 class CoursePlanner : public QMainWindow
 {
@@ -21,10 +22,16 @@ public:
 	void populateCourseList(CourseCatalog* cat);
 	void populateComboBoxes();
 
+	void createSchoolsDialog();
+
 public slots:
 	void updatePlanName();
+
+private slots:
+	void on_schoolsCombo_currentIndexChanged(int index);
 
 private:
 	Ui::CoursePlannerClass ui;
 	MasterPlanner& backendPlan;
+	QStringListModel* schoolsModel;
 };

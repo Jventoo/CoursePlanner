@@ -10,4 +10,15 @@ class SchoolsDialog : public QDialog, public Ui::SchoolsDialog
 public:
 	SchoolsDialog(QWidget *parent = Q_NULLPTR);
 	~SchoolsDialog();
+
+	// Returns true if enabled
+	bool updateRemoveButton();
+
+private slots:
+	void on_addButton_clicked();
+	void on_removeButton_clicked();
+	void on_closeButton_clicked();
+
+private:
+	bool allEntriesNormal;
 };

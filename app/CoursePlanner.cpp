@@ -74,7 +74,7 @@ void CoursePlanner::updatePlanName()
 // Rough version. Needs refinement
 void CoursePlanner::updateBackendCatalogs()
 {
-	auto cats = backendPlan.getCourseCats();
+	auto& cats = backendPlan.getCourseCats();
 	auto catsSize = cats.size();
 
 	auto comboModel = ui.schoolsCombo->model();
@@ -130,7 +130,8 @@ void CoursePlanner::updateBackendCatalogs()
 
 		for (int i = catsSize; i < comboSize; ++i)
 		{
-			cats.push_back(new CourseCatalog(comboModel->data(comboModel->index(i, 0)).toString()));
+			auto ptr = new CourseCatalog(comboModel->data(comboModel->index(i, 0)).toString());
+			cats.push_back(ptr);
 		}
 	}
 	else // Check for renamed items

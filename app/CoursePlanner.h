@@ -26,6 +26,8 @@ public:
 
 public slots:
 	void updatePlanName();
+	void updateBackendCatalogs();
+	void updateCourseList();
 
 private slots:
 	void on_schoolsCombo_currentIndexChanged(int index);

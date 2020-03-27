@@ -3,7 +3,7 @@
 SchoolsDialog::SchoolsDialog(QWidget *parent)
 	: QDialog(parent)
 {
-	allEntriesNormal = false;
+	entriesAdded = false;
 
 	setupUi(this);
 }
@@ -19,17 +19,31 @@ void SchoolsDialog::on_addButton_clicked()
 	int i = model->rowCount();
 
 	model->insertRow(i);
-	model->setData(model->index(i, 0), "");
+
+	auto index = model->index(i, 0);
+	model->setData(index, "");
+
+	schoolsList->setCurrentIndex(index);
+	schoolsList->edit(index);
+
+	updateRemoveButton();
+
+	entriesAdded = true;
 }
 
 void SchoolsDialog::on_removeButton_clicked()
 {
+	auto model = schoolsList->model();
+	auto i = schoolsList->currentIndex().row();
+
+	model->removeRow(i);
+
 	updateRemoveButton();
 }
 
 void SchoolsDialog::on_closeButton_clicked()
 {
-	if (!allEntriesNormal)
+	if (entriesAdded)
 	{
 		auto model = schoolsList->model();
 		for (int i = 0; i < model->rowCount(); ++i)
@@ -38,7 +52,7 @@ void SchoolsDialog::on_closeButton_clicked()
 				continue;
 			else
 			{
-				model->setData(model->index(i, 0), tr("School" + i));
+				model->setData(model->index(i, 0), QStringLiteral("School%1").arg(i));
 			}
 		}
 	}
@@ -52,4 +66,10 @@ bool SchoolsDialog::updateRemoveButton()
 	removeButton->setEnabled(temp);
 
 	return temp;
+}
+
+void SchoolsDialog::reject()
+{
+	on_closeButton_clicked();
+	QDialog::reject();
 }

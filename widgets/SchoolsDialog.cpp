@@ -62,10 +62,10 @@ void SchoolsDialog::on_closeButton_clicked()
 
 bool SchoolsDialog::updateRemoveButton()
 {
-	bool temp = schoolsList->model()->rowCount() > 1;
-	removeButton->setEnabled(temp);
+	bool countGtrOne = schoolsList->model()->rowCount() > 1;
+	removeButton->setEnabled(countGtrOne);
 
-	return temp;
+	return countGtrOne;
 }
 
 void SchoolsDialog::reject()

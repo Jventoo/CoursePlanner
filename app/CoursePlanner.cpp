@@ -79,7 +79,7 @@ void CoursePlanner::updateBackendCatalogs()
 
 	auto comboModel = ui.schoolsCombo->model();
 	auto comboSize = ui.schoolsCombo->count();
-	
+
 	if (catsSize > comboSize) // Items removed and potentially changed. TO-DO: Preserve course catalogs; currently destructs catalogs if removed isn't last index.
 	{
 		// Check for changes
@@ -100,13 +100,10 @@ void CoursePlanner::updateBackendCatalogs()
 		// Delete excess cats
 		for (int i = comboSize; i < catsSize; ++i)
 		{
-			auto ptr = cats[i];
-
-			cats.erase(cats.begin() + i);
-
-			delete ptr;
-			ptr = nullptr;
+			delete cats[i];
 		}
+
+		cats.resize(comboSize);
 	}
 	else if (catsSize < comboSize) // Items added and potentially changed
 	{
@@ -195,11 +192,10 @@ void CoursePlanner::createSchoolsDialog()
 	dialog.schoolsList->setModel(schoolsModel);
 	dialog.updateRemoveButton();
 
-	if (dialog.exec())
-	{
-		updateBackendCatalogs();
-		updateCourseList();
-	}
+	dialog.exec();
+
+	updateBackendCatalogs();
+	updateCourseList();
 }
 
 void CoursePlanner::updateCourseList()

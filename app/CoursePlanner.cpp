@@ -1,8 +1,11 @@
 #include "CoursePlanner.h"
-#include "PlannedClassWidget.h"
-#include "CourseList.h"
+
 #include "includes/Course.h"
 #include "SchoolsDialog.h"
+#include "CourseDialog.h"
+#include "CourseList.h"
+
+#include <QStandardItemModel>
 
 CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	: backendPlan(BP), QMainWindow(parent)
@@ -17,6 +20,10 @@ CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	connect(ui.action_EditSchools, &QAction::triggered,
 		this, &CoursePlanner::createSchoolsDialog);
 
+	// Connect "Edit Courses" button to create courseDialog
+	connect(ui.coursesButton, &QPushButton::clicked,
+		this, &CoursePlanner::createCourseDialog);
+
 	// If we don't have any course catalogs (i.e. schools), disable combos/buttons
 	if (backendPlan.getCourseCats().size() == 0)
 	{
@@ -26,8 +33,7 @@ CoursePlanner::CoursePlanner(MasterPlanner& BP, QWidget *parent)
 	else
 	{
 		auto currCat = backendPlan.getCourseCats().at(0);
-
-		backendPlan.setCurrCatalog(currCat);
+		setCurrentCatalog(currCat);
 		populateCourseList(currCat);
 		populateComboBoxes();
 	}
@@ -64,6 +70,67 @@ void CoursePlanner::toggleCoursesButton()
 		ui.coursesButton->setEnabled(false);
 	else
 		ui.coursesButton->setEnabled(true);
+}
+
+void CoursePlanner::populateCourseList(CourseCatalog* cat)
+{
+	ui.coursesList->clearAll();
+
+	for (const auto& e : cat->getCatalog())
+	{
+		ui.coursesList->addCourse(e);
+	}
+
+	coursesModels[cat->getSchoolName()] = ui.coursesList->model();
+}
+
+void CoursePlanner::populateComboBoxes()
+{
+	auto currCat = backendPlan.getCurrentCat();
+
+	if (currCat)
+	{	
+		QStringList list;
+		for (const auto& e : backendPlan.getCourseCats())
+			list << e->getSchoolName();
+
+		schoolsModel = new QStringListModel(list);
+
+		ui.schoolsCombo->setModel(schoolsModel);
+		ui.schoolsCombo->setCurrentText(currCat->getSchoolName());
+
+
+		// Give functionality to years combo
+		ui.yearCombo->setEnabled(false);
+	}
+	else
+		schoolsModel = nullptr;
+}
+
+void CoursePlanner::createSchoolsDialog()
+{
+	SchoolsDialog dialog(this);
+	dialog.schoolsList->setModel(schoolsModel);
+	dialog.updateRemoveButton();
+
+	dialog.exec();
+
+	updateBackendCatalogs();
+	updateCourseList();
+}
+
+void CoursePlanner::createCourseDialog()
+{
+	auto curr = backendPlan.getCurrentCat();
+	auto origCount = curr->getCatalog().size();
+
+	CourseDialog dialog(this);
+
+	dialog.fillCourseList(curr, coursesModels[curr->getSchoolName()]);
+	dialog.exec();
+
+	if (origCount != curr->getCatalog().size())
+		populateCourseList(curr);
 }
 
 void CoursePlanner::updatePlanName()
@@ -148,59 +215,38 @@ void CoursePlanner::updateBackendCatalogs()
 	}
 }
 
-void CoursePlanner::populateCourseList(CourseCatalog* cat)
+void CoursePlanner::updateBackendCourses()
 {
-	for (const auto& e : cat->getCatalog())
-	{
-		ui.coursesList->addCourse(e);
-	}
-}
-
-void CoursePlanner::populateComboBoxes()
-{
-	auto currCat = backendPlan.getCurrentCat();
-
-	if (currCat)
-	{	
-		QStringList list;
-		for (const auto& e : backendPlan.getCourseCats())
-			list << e->getSchoolName();
-
-		schoolsModel = new QStringListModel(list);
-
-		ui.schoolsCombo->setModel(schoolsModel);
-		ui.schoolsCombo->setCurrentText(currCat->getSchoolName());
-
-
-		// Give functionality to years combo
-		ui.yearCombo->setEnabled(false);
-	}
-	else
-		schoolsModel = nullptr;
-}
-
-void CoursePlanner::on_schoolsCombo_currentIndexChanged(int index)
-{
-	backendPlan.setCurrCatalog(backendPlan.getCourseCats().at(index));
-
-	updateCourseList();
-}
-
-void CoursePlanner::createSchoolsDialog()
-{
-	SchoolsDialog dialog(this);
-	dialog.schoolsList->setModel(schoolsModel);
-	dialog.updateRemoveButton();
-
-	dialog.exec();
-
-	updateBackendCatalogs();
-	updateCourseList();
+	auto cat = backendPlan.getCurrentCat();
 }
 
 void CoursePlanner::updateCourseList()
 {
-	// WIP APPROACH! CHANGE TO CREATE NEW MODEL AND SWITCHING: PRESERVING MODEL SO LONG AS IT IS STILL ALIVE IN BACKEND!
-	ui.coursesList->clearAll();
-	populateCourseList(backendPlan.getCurrentCat());
+	auto currCat = backendPlan.getCurrentCat();
+
+	// If no existing hash for current catalog, make one. Else, switch to it's model
+	auto iter = coursesModels.find(currCat->getSchoolName());
+	if (iter == coursesModels.end())
+	{
+		ui.coursesList->setModel(new QStandardItemModel(ui.coursesList));
+		populateCourseList(currCat);
+	}
+	else
+		ui.coursesList->switchModels(iter.value());
+}
+
+void CoursePlanner::setCurrentCatalog(CourseCatalog* newCat)
+{
+	// Save old course model in hash, update backend pointer
+	auto curr = backendPlan.getCurrentCat();
+	if (curr)
+		coursesModels[curr->getSchoolName()] = ui.coursesList->model();
+	backendPlan.setCurrCatalog(newCat);
+}
+
+void CoursePlanner::on_schoolsCombo_currentIndexChanged(int index)
+{
+	setCurrentCatalog(backendPlan.getCourseCats().at(index));
+
+	updateCourseList();
 }

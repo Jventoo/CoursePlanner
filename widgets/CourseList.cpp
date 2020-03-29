@@ -30,10 +30,10 @@ CourseList::CourseList(QWidget* parent) :
 
 void CourseList::addCourse(const Course& newCourse)
 {
+	auto* item = new QStandardItem(newCourse.getCourseName());
+
 	QVariant courseData;
 	courseData.setValue(newCourse);
-
-	auto* item = new QStandardItem(newCourse.getCourseName());
 
 	item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
 	item->setData(courseData, Qt::UserRole);
@@ -42,7 +42,36 @@ void CourseList::addCourse(const Course& newCourse)
 	scrollToBottom();
 }
 
+void CourseList::clearCourse(const Course& newCourse)
+{
+	auto modl = static_cast<QStandardItemModel*>(model());
+	QStandardItem* currItem = modl->itemFromIndex(currentIndex());
+
+	if (currItem)
+	{
+		auto rw = currItem->row();
+		auto del = modl->takeRow(rw);
+		
+		for (auto& e : del)
+			delete e;
+
+		/*auto cnt = count();
+
+		if (cnt > 0)
+			if (row == 0)
+				setCurrentRow(row);
+			else
+				setCurrentRow(row - 1);
+		*/
+	}
+}
+
 void CourseList::clearAll()
 {
 	static_cast<QStandardItemModel*>(model())->clear();
+}
+
+void CourseList::switchModels(QAbstractItemModel* newModel)
+{
+	setModel(newModel);
 }

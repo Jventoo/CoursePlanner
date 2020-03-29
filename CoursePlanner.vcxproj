@@ -87,8 +87,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtUic Include="app\CoursePlanner.ui" />
+    <QtUic Include="widgets\AddCourseDialog.ui" />
     <QtUic Include="widgets\CourseDialog.ui" />
-    <QtUic Include="widgets\PlannedClassWidget.ui" />
     <QtUic Include="widgets\SchoolsDialog.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -111,10 +111,10 @@
     <ClCompile Include="src\Person.cpp" />
     <ClCompile Include="src\Section.cpp" />
     <ClCompile Include="src\Term.cpp" />
+    <ClCompile Include="widgets\AddCourseDialog.cpp" />
     <ClCompile Include="widgets\CourseDialog.cpp" />
     <ClCompile Include="widgets\CourseList.cpp" />
     <ClCompile Include="widgets\Delegates\CourseDelegate.cpp" />
-    <ClCompile Include="widgets\PlannedClassWidget.cpp" />
     <ClCompile Include="widgets\SchoolsDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,12 +129,12 @@
     <ClInclude Include="includes\Person.h" />
     <ClInclude Include="includes\Section.h" />
     <ClInclude Include="includes\Term.h" />
+    <QtMoc Include="widgets\AddCourseDialog.h" />
     <ClInclude Include="widgets\Delegates\CourseDelegate_p.h" />
     <QtMoc Include="widgets\Delegates\CourseDelegate.h" />
     <QtMoc Include="widgets\CourseList.h" />
     <QtMoc Include="widgets\SchoolsDialog.h" />
     <QtMoc Include="widgets\CourseDialog.h" />
-    <QtMoc Include="widgets\PlannedClassWidget.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\Courses.txt" />

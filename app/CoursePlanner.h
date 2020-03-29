@@ -5,6 +5,7 @@
 #include "includes/MasterPlanner.h"
 
 #include <vector>
+#include <QHash>
 #include <QString>
 #include <QStringListModel>
 
@@ -23,11 +24,16 @@ public:
 	void populateComboBoxes();
 
 	void createSchoolsDialog();
+	void createCourseDialog();
 
 public slots:
 	void updatePlanName();
 	void updateBackendCatalogs();
+	void updateBackendCourses();
 	void updateCourseList();
+
+	// Wrapper for backend; saves models on frontend
+	void setCurrentCatalog(CourseCatalog* cat);
 
 private slots:
 	void on_schoolsCombo_currentIndexChanged(int index);
@@ -36,4 +42,5 @@ private:
 	Ui::CoursePlannerClass ui;
 	MasterPlanner& backendPlan;
 	QStringListModel* schoolsModel;
+	QHash<QString, QAbstractItemModel*> coursesModels;
 };

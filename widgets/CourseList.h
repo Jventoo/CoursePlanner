@@ -12,8 +12,7 @@ public:
 
 public slots:
 	void addCourse(const Course& newCourse);
-	//void clearCourse(const Course& oldCourse);
-	//void createNewModel();
-	//void switchModels();
+	void clearCourse(const Course& oldCourse);
 	void clearAll();
+	void switchModels(QAbstractItemModel* newModel);
 };

@@ -222,7 +222,20 @@
           </widget>
          </item>
          <item>
-          <widget class="CourseList" name="fallListView"/>
+          <widget class="CourseList" name="fallListView">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="movement">
+            <enum>QListView::Free</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -266,7 +279,20 @@
           </widget>
          </item>
          <item>
-          <widget class="CourseList" name="winterListView"/>
+          <widget class="CourseList" name="winterListView">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="movement">
+            <enum>QListView::Free</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -310,7 +336,20 @@
           </widget>
          </item>
          <item>
-          <widget class="CourseList" name="springListView"/>
+          <widget class="CourseList" name="springListView">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="movement">
+            <enum>QListView::Free</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -354,7 +393,20 @@
           </widget>
          </item>
          <item>
-          <widget class="CourseList" name="summerListView"/>
+          <widget class="CourseList" name="summerListView">
+           <property name="acceptDrops">
+            <bool>true</bool>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="movement">
+            <enum>QListView::Free</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -375,7 +427,20 @@
         </spacer>
        </item>
        <item>
-        <widget class="CourseList" name="coursesList"/>
+        <widget class="CourseList" name="coursesList">
+         <property name="acceptDrops">
+          <bool>true</bool>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="dragDropMode">
+          <enum>QAbstractItemView::DragDrop</enum>
+         </property>
+         <property name="movement">
+          <enum>QListView::Free</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -388,7 +453,7 @@
      <x>0</x>
      <y>0</y>
      <width>1919</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
    <property name="acceptDrops">

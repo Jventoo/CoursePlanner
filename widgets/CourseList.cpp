@@ -26,6 +26,11 @@ CourseList::CourseList(QWidget* parent) :
 	setFont(QFont("MSShellDlg 2", 12));
 	setModel(new QStandardItemModel(this));
 	setItemDelegate(delegate);
+
+	setSelectionMode(QAbstractItemView::ExtendedSelection);
+	setDragEnabled(true);
+	setAcceptDrops(true);
+	setDropIndicatorShown(true);
 }
 
 void CourseList::addCourse(const Course& newCourse)
@@ -35,7 +40,8 @@ void CourseList::addCourse(const Course& newCourse)
 	QVariant courseData;
 	courseData.setValue(newCourse);
 
-	item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+	item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable 
+		| Qt::ItemIsDropEnabled | Qt::ItemIsDragEnabled);
 	item->setData(courseData, Qt::UserRole);
 
 	static_cast<QStandardItemModel*>(model())->appendRow(item);

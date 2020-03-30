@@ -9,6 +9,9 @@ CourseDialog::CourseDialog(QWidget *parent)
 	setupUi(this);
 
 	assignedCatalog = nullptr;
+
+	//addedCoursesList->setDragEnabled(false);
+	//addedCoursesList->setAcceptDrops(false);
 }
 
 CourseDialog::~CourseDialog()

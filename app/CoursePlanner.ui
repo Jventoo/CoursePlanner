@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1919</width>
-    <height>1021</height>
+    <width>1787</width>
+    <height>915</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>40</x>
       <y>10</y>
-      <width>1841</width>
-      <height>971</height>
+      <width>1701</width>
+      <height>841</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="masterVLayout">
@@ -232,6 +232,9 @@
            <property name="dragDropMode">
             <enum>QAbstractItemView::DragDrop</enum>
            </property>
+           <property name="defaultDropAction">
+            <enum>Qt::MoveAction</enum>
+           </property>
            <property name="movement">
             <enum>QListView::Free</enum>
            </property>
@@ -288,6 +291,9 @@
            </property>
            <property name="dragDropMode">
             <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="defaultDropAction">
+            <enum>Qt::MoveAction</enum>
            </property>
            <property name="movement">
             <enum>QListView::Free</enum>
@@ -346,6 +352,9 @@
            <property name="dragDropMode">
             <enum>QAbstractItemView::DragDrop</enum>
            </property>
+           <property name="defaultDropAction">
+            <enum>Qt::MoveAction</enum>
+           </property>
            <property name="movement">
             <enum>QListView::Free</enum>
            </property>
@@ -403,6 +412,9 @@
            <property name="dragDropMode">
             <enum>QAbstractItemView::DragDrop</enum>
            </property>
+           <property name="defaultDropAction">
+            <enum>Qt::MoveAction</enum>
+           </property>
            <property name="movement">
             <enum>QListView::Free</enum>
            </property>
@@ -437,6 +449,9 @@
          <property name="dragDropMode">
           <enum>QAbstractItemView::DragDrop</enum>
          </property>
+         <property name="defaultDropAction">
+          <enum>Qt::MoveAction</enum>
+         </property>
          <property name="movement">
           <enum>QListView::Free</enum>
          </property>
@@ -452,7 +467,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1919</width>
+     <width>1787</width>
      <height>27</height>
     </rect>
    </property>

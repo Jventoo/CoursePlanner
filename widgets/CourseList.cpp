@@ -27,11 +27,13 @@ CourseList::CourseList(QWidget* parent) :
 	setModel(new QStandardItemModel(this));
 	setItemDelegate(delegate);
 
-	setSelectionMode(QAbstractItemView::ExtendedSelection);
+	/*setSelectionMode(QAbstractItemView::SingleSelection);
 	setDragEnabled(true);
 	setAcceptDrops(true);
 	setDropIndicatorShown(true);
-	setDefaultDropAction(Qt::MoveAction);
+	setDragDropMode(QAbstractItemView::DragDrop);
+	setDefaultDropAction(Qt::TargetMoveAction);
+	setMovement(QListView::Free);*/
 }
 
 void CourseList::addCourse(const Course& newCourse)

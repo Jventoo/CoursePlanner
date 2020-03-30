@@ -4,7 +4,7 @@
 #include <QtWidgets/QApplication>
 #include <QDataStream>
 
-QDataStream& operator<<(QDataStream& out, Course const& rhs) {
+QDataStream& operator<<(QDataStream& out, const Course& rhs) {
 	out.writeRawData(reinterpret_cast<const char*>(&rhs), sizeof(rhs));
 	return out;
 }

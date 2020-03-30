@@ -31,6 +31,7 @@ CourseList::CourseList(QWidget* parent) :
 	setDragEnabled(true);
 	setAcceptDrops(true);
 	setDropIndicatorShown(true);
+	setDefaultDropAction(Qt::MoveAction);
 }
 
 void CourseList::addCourse(const Course& newCourse)
